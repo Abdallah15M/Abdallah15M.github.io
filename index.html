@@ -1,566 +1,1868 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Abdallah M.Alkady | Data Analyst</title>
-    <meta name="description" content="Portfolio of Abdallah M.Alkady — Data Analyst specializing in Excel, Power BI, and turning data into decisions.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="profile.png" as="image">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="./favicon2.png?v=1">
+    <link rel="apple-touch-icon" href="./favicon.png?v=1">
+
+    <meta
+        name="description"
+        content="Portfolio of Abdallah M.Alkady — Data Analyst specializing in Excel, Power BI, and turning data into decisions."
+    >
+
+    <!-- Apply theme before page renders -->
+    <script>
+        (function () {
+
+            const THEME_KEY =
+                "abdallah-portfolio-theme";
+
+            try {
+
+                const savedTheme =
+                    localStorage.getItem(
+                        THEME_KEY
+                    );
+
+                const systemPrefersDark =
+                    window.matchMedia &&
+                    window.matchMedia(
+                        "(prefers-color-scheme: dark)"
+                    ).matches;
+
+                const initialTheme =
+                    savedTheme === "dark" ||
+                    savedTheme === "light"
+                        ? savedTheme
+                        : (
+                            systemPrefersDark
+                                ? "dark"
+                                : "light"
+                        );
+
+                document.documentElement
+                    .setAttribute(
+                        "data-theme",
+                        initialTheme
+                    );
+
+            } catch (error) {
+
+                document.documentElement
+                    .setAttribute(
+                        "data-theme",
+                        "dark"
+                    );
+
+            }
+
+        })();
+    </script>
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        rel="preload"
+        href="profile.png"
+        as="image"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
+
 <body>
+
 
     <!-- =====================================================
          PORTFOLIO LOADER
     ====================================================== -->
-    <div id="intro" aria-live="polite">
+
+    <div
+        id="intro"
+        aria-live="polite"
+    >
+
         <div class="portfolio-loader-shell">
+
+
             <div class="loader-photo-wrap">
+
                 <img
                     src="profile.png"
                     alt="Abdallah M.Alkady"
                     class="loader-photo"
                     width="180"
                     height="180"
-                    fetchpriority="high">
+                    fetchpriority="high"
+                >
+
             </div>
+
 
             <div class="portfolio-loader">
-                <div class="loader-label">DATA ANALYST • PORTFOLIO</div>
-                <h1 class="loader-name">Abdallah M.Alkady</h1>
-                <p class="loader-status" id="loaderStatus">Loading portfolio...</p>
+
+                <div class="loader-label">
+                    DATA ANALYST • PORTFOLIO
+                </div>
+
+
+                <h1 class="loader-name">
+                    Abdallah M.Alkady
+                </h1>
+
+
+                <p
+                    class="loader-status"
+                    id="loaderStatus"
+                >
+                    Loading portfolio...
+                </p>
+
 
                 <div class="loader-progress-track">
-                    <div class="loader-progress-bar" id="loaderProgressBar"></div>
+
+                    <div
+                        class="loader-progress-bar"
+                        id="loaderProgressBar"
+                    ></div>
+
                 </div>
 
+
                 <div class="loader-footer">
-                    <span class="loader-percentage" id="loaderPercentage">0%</span>
-                    <span class="loader-message">Turning data into decisions.</span>
+
+                    <span
+                        class="loader-percentage"
+                        id="loaderPercentage"
+                    >
+                        0%
+                    </span>
+
+
+                    <span class="loader-message">
+                        Turning data into decisions.
+                    </span>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
+
 
     <!-- =====================================================
          MAIN WEBSITE
     ====================================================== -->
+
     <div id="website">
 
-        <!-- NAVBAR -->
-        <nav>
-            <a href="#home" class="logo" aria-label="Home">
-            </a>
 
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+        <!-- =================================================
+             NAVBAR
+        ================================================== -->
+
+        <nav>
+
+<!-- =====================================================
+         LOGO
+    ====================================================== -->
+            <a
+                href="#home"
+                class="logo"
+                aria-label="Home"
+            ></a>
 
             <ul id="navMenu">
+
+
                 <li>
+
                     <a href="#home">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z"/>
+                        </svg>
+
                         Home
+
                     </a>
+
                 </li>
+
+
                 <li>
+
                     <a href="#about">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/>
+                        </svg>
+
                         About
+
                     </a>
+
                 </li>
+
+
                 <li>
+
                     <a href="#skills">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z"/>
+                        </svg>
+
                         Skills
+
                     </a>
+
                 </li>
+
+
                 <li>
+
                     <a href="#projects">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>
+                        </svg>
+
                         Projects
+
                     </a>
+
                 </li>
+
+
                 <li>
+
                     <a href="#cv">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm7 1.5V8h3.5L14 4.5ZM8 12h8v1.5H8V12Zm0 3.5h8V17H8v-1.5Zm0-7h4V10H8V8.5Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm7 1.5V8h3.5L14 4.5ZM8 12h8v1.5H8V12Zm0 3.5h8V17H8v-1.5Zm0-7h4V10H8V8.5Z"/>
+                        </svg>
+
                         CV
+
                     </a>
+
                 </li>
+
+
                 <li>
+
                     <a href="#contact">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6Zm-2 0-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6Zm-2 0-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/>
+                        </svg>
+
                         Contact
+
                     </a>
+
                 </li>
+
             </ul>
+
+
+            <div class="nav-actions">
+
+
+                <!-- THEME BUTTON -->
+
+                <button
+                    type="button"
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Switch theme"
+                    title="Switch theme"
+                >
+
+
+                    <!-- MOON -->
+
+                    <svg
+                        class="theme-icon theme-icon-moon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"
+                        />
+
+                    </svg>
+
+
+                    <!-- SUN -->
+
+                    <svg
+                        class="theme-icon theme-icon-sun"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                        />
+
+                        <path
+                            d="
+                                M12 2v2
+                                M12 20v2
+                                M4.93 4.93l1.41 1.41
+                                M17.66 17.66l1.41 1.41
+                                M2 12h2
+                                M20 12h2
+                                M6.34 17.66l-1.41 1.41
+                                M19.07 4.93l-1.41 1.41
+                            "
+                        />
+
+                    </svg>
+
+                </button>
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    type="button"
+                    class="nav-toggle"
+                    id="navToggle"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
         </nav>
 
-        <!-- HOME -->
+
+
+        <!-- =================================================
+             HOME
+        ================================================== -->
+
         <section id="home">
-            <div class="hero">
-                <div class="hero-copy">
-                    <div class="hero-label">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/></svg>
-                        DATA ANALYST • PORTFOLIO
-                    </div>
 
-                    <div class="hero-name-row">
-                        <img
-                            src="profile.png"
-                            alt="Abdallah M.Alkady"
-                            class="hero-profile-photo"
-                            width="520"
-                            height="520">
-                        <div>
-                            <h1>I'm <span>Abdallah M.Alkady</span></h1>
-                            <h2>Data Analyst</h2>
-                        </div>
-                    </div>
+    <div class="hero">
 
-                    <p>
-                        I transform raw data into meaningful insights
-                        and build interactive dashboards that help
-                        turn information into better decisions.
-                    </p>
+        <!-- LEFT SIDE -->
+        <div class="hero-copy">
 
-                    <div class="buttons">
-                        <a href="#projects" class="btn primary">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h10v2H4v-2Z"/></svg>
-                            View My Projects
-                        </a>
-                        <a href="#contact" class="btn">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2v7Z"/></svg>
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
+            <div class="hero-label">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/>
+                </svg>
+
+                DATA ANALYST • PORTFOLIO
+
             </div>
-        </section>
 
-        <!-- ABOUT -->
-        <section id="about">
-            <h2 class="section-title">
-                <span class="section-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+
+            <h1>
+                Hi,
+                <br>
+                I'm
+                <span>
+                    Abdallah M.Alkady
                 </span>
-                About <span>Me</span>
+            </h1>
+
+
+            <h2>
+                Data Analyst
             </h2>
 
+
+            <p>
+                I transform raw data into meaningful insights
+                and build interactive dashboards that help
+                turn information into better decisions.
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    href="#projects"
+                    class="btn primary"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h10v2H4v-2Z"/>
+                    </svg>
+
+                    View My Projects
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="btn"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2v7Z"/>
+                    </svg>
+
+                    Contact Me
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="hero-visual">
+
+            <div class="hero-photo-glow"></div>
+
+            <div class="hero-photo-ring"></div>
+
+            <img
+                src="photo3.png"
+                alt="Abdallah M.Alkady"
+                class="hero-side-photo"
+                width="650"
+                height="760"
+                fetchpriority="high"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================== -->
+
+        <section id="about">
+
+
+            <h2 class="section-title">
+
+
+                <span
+                    class="section-icon"
+                    aria-hidden="true"
+                >
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/>
+                    </svg>
+
+                </span>
+
+
+                About
+                <span>Me</span>
+
+            </h2>
+
+
             <div class="about-container">
+
+
                 <div>
+
                     <p class="about-text">
-                        Hello! I'm <strong>Abdallah M.Alkady</strong>.
+
+                        Hello! I'm
+                        <strong>
+                            Abdallah M.Alkady
+                        </strong>.
+
                         <br><br>
+
                         Computer Science & AI student at Menoufia University,
                         passionate about Data Analysis and turning raw data
                         into insights that support real decision-making.
+
                         <br><br>
+
                         Currently pursuing a Data Analysis diploma with Eraasoft,
                         and have completed the first phase. Continuously building
                         my skills in Excel and Power BI to strengthen my analytical
                         foundation.
+
                         <br><br>
+
                         Always open to connecting with professionals in the data
                         field, learning from their experience, and exploring
                         opportunities to grow.
+
                     </p>
+
                 </div>
+
 
                 <div class="info-box">
+
+
                     <div class="info">
-                        <div class="info-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><path d="M4 19V5h16v14H4Zm2-2h12V9H6v8Zm2-6h3v4H8v-4Zm5 0h3v2h-3v-2Z"/></svg>
+
+
+                        <div
+                            class="info-icon"
+                            aria-hidden="true"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 19V5h16v14H4Zm2-2h12V9H6v8Zm2-6h3v4H8v-4Zm5 0h3v2h-3v-2Z"/>
+                            </svg>
+
                         </div>
-                        <h3>Education</h3>
+
+
+                        <h3>
+                            Education
+                        </h3>
+
+
                         <p>
+
                             Faculty of Computers and Artificial Intelligence - MNU
+
                             <br>
+
                             Data Analysis Diploma - Eraasoft
+
                         </p>
+
                     </div>
 
-                    <div class="info">
-                        <div class="info-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><path d="M12 2.5 20 7v4.5c0 5.2-3.4 9.9-8 11-4.6-1.1-8-5.8-8-11V7l8-4.5ZM12 5.1 6 8.3v3.2c0 3.9 2.5 7.5 6 8.6 3.5-1.1 6-4.7 6-8.6V8.3l-6-3.2Z"/></svg>
-                        </div>
-                        <h3>Location</h3>
-                        <p>Egypt</p>
-                    </div>
 
                     <div class="info">
-                        <div class="info-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/></svg>
+
+
+                        <div
+                            class="info-icon"
+                            aria-hidden="true"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2.5 20 7v4.5c0 5.2-3.4 9.9-8 11-4.6-1.1-8-5.8-8-11V7l8-4.5ZM12 5.1 6 8.3v3.2c0 3.9 2.5 7.5 6 8.6 3.5-1.1 6-4.7 6-8.6V8.3l-6-3.2Z"/>
+                            </svg>
+
                         </div>
-                        <h3>Field</h3>
-                        <p>Data Analysis</p>
+
+
+                        <h3>
+                            Location
+                        </h3>
+
+                        <p>
+                            Egypt
+                        </p>
+
                     </div>
 
+
                     <div class="info">
-                        <div class="info-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 3.2-2.1 5.9-5 6.7V18h-4v-2.3c-2.9-.8-5-3.5-5-6.7a7 7 0 0 1 7-7Zm-2 18h4v2h-4v-2Z"/></svg>
+
+
+                        <div
+                            class="info-icon"
+                            aria-hidden="true"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/>
+                            </svg>
+
                         </div>
-                        <h3>Availability</h3>
-                        <p>Open to Internships & Opportunities</p>
+
+
+                        <h3>
+                            Field
+                        </h3>
+
+                        <p>
+                            Data Analysis
+                        </p>
+
                     </div>
+
+
+                    <div class="info">
+
+
+                        <div
+                            class="info-icon"
+                            aria-hidden="true"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2a7 7 0 0 1 7 7c0 3.2-2.1 5.9-5 6.7V18h-4v-2.3c-2.9-.8-5-3.5-5-6.7a7 7 0 0 1 7-7Zm-2 18h4v2h-4v-2Z"/>
+                            </svg>
+
+                        </div>
+
+
+                        <h3>
+                            Availability
+                        </h3>
+
+
+                        <p>
+                            Open to Internships & Opportunities
+                        </p>
+
+                    </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- SKILLS -->
+
+
+        <!-- =================================================
+             SKILLS
+        ================================================== -->
+
         <section id="skills">
+
+
             <h2 class="section-title">
-                <span class="section-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z"/></svg>
+
+                <span
+                    class="section-icon"
+                    aria-hidden="true"
+                >
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z"/>
+                    </svg>
+
                 </span>
-                My <span>Skills</span>
+
+                My
+                <span>Skills</span>
+
             </h2>
+
 
             <div class="skills">
-                <div class="skill">
-                    <div class="skill-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm1 5h14v11H5V8Zm2 2v2h2v-2H7Zm4 0v2h2v-2h-2Zm4 0v2h2v-2h-2ZM7 14v2h2v-2H7Zm4 0v2h2v-2h-2Zm4 0v2h2v-2h-2Z"/></svg>
-                    </div>
-                    <h3>Excel</h3>
-                    <p>Data Analysis & Reporting</p>
-                </div>
+
 
                 <div class="skill">
-                    <div class="skill-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M4 19V5h2v12h14v2H4Zm3.5-3 3.2-4.2 2.6 2.1L17 8.5l1.5 1.2-5.4 6.8-2.7-2.2L7.5 16Z"/></svg>
+
+
+                    <div
+                        class="skill-icon"
+                        aria-hidden="true"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm1 5h14v11H5V8Zm2 2v2h2v-2H7Zm4 0v2h2v-2h-2Zm4 0v2h2v-2h-2ZM7 14v2h2v-2H7Zm4 0v2h2v-2h-2Zm4 0v2h2v-2h-2Z"/>
+                        </svg>
+
                     </div>
-                    <h3>Power BI</h3>
-                    <p>Dashboards & Visualization</p>
+
+
+                    <h3>
+                        Excel
+                    </h3>
+
+
+                    <p>
+                        Data Analysis & Reporting
+                    </p>
+
                 </div>
 
-                <div class="skill">
-                    <div class="skill-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M5 4h14v4H5V4Zm0 6h6v10H5V10Zm8 0h6v4h-6v-4Zm0 6h6v4h-6v-4Z"/></svg>
-                    </div>
-                    <h3>Data Visualization</h3>
-                    <p>Charts, KPIs & Storytelling</p>
-                </div>
 
                 <div class="skill">
-                    <div class="skill-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M9 3h6v2H9V3Zm1 4h4l1 3h3v2h-1.1l-1.3 7H6.4L5.1 12H4V10h3l1-3Zm.9 5-.7 4h4.6l-.7-4H10.9Z"/></svg>
+
+
+                    <div
+                        class="skill-icon"
+                        aria-hidden="true"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 19V5h2v12h14v2H4Zm3.5-3 3.2-4.2 2.6 2.1L17 8.5l1.5 1.2-5.4 6.8-2.7-2.2L7.5 16Z"/>
+                        </svg>
+
                     </div>
-                    <h3>Analytical Thinking</h3>
-                    <p>Insights & Decision Support</p>
+
+
+                    <h3>
+                        Power BI
+                    </h3>
+
+
+                    <p>
+                        Dashboards & Visualization
+                    </p>
+
                 </div>
+
+
+                <div class="skill">
+
+
+                    <div
+                        class="skill-icon"
+                        aria-hidden="true"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 4h14v4H5V4Zm0 6h6v10H5V10Zm8 0h6v4h-6v-4Zm0 6h6v4h-6v-4Z"/>
+                        </svg>
+
+                    </div>
+
+
+                    <h3>
+                        Data Visualization
+                    </h3>
+
+
+                    <p>
+                        Charts, KPIs & Storytelling
+                    </p>
+
+                </div>
+
+
+                <div class="skill">
+
+
+                    <div
+                        class="skill-icon"
+                        aria-hidden="true"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 3h6v2H9V3Zm1 4h4l1 3h3v2h-1.1l-1.3 7H6.4L5.1 12H4V10h3l1-3Zm.9 5-.7 4h4.6l-.7-4H10.9Z"/>
+                        </svg>
+
+                    </div>
+
+
+                    <h3>
+                        Analytical Thinking
+                    </h3>
+
+
+                    <p>
+                        Insights & Decision Support
+                    </p>
+
+                </div>
+
             </div>
+
         </section>
 
-        <!-- PROJECTS -->
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================== -->
+
         <section id="projects">
+
+
             <h2 class="section-title">
-                <span class="section-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+
+
+                <span
+                    class="section-icon"
+                    aria-hidden="true"
+                >
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>
+                    </svg>
+
                 </span>
-                My <span>Projects</span>
+
+
+                My
+                <span>Projects</span>
+
             </h2>
 
+
             <div class="projects">
+
+
+                <!-- PROJECT 1 -->
+
                 <div class="project">
+
+
                     <div class="project-image">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm2 4v2h4V7H6Zm6 0v2h6V7h-6ZM6 11v2h3v-2H6Zm5 0v2h7v-2h-7ZM6 15v2h5v-2H6Zm7 0v2h5v-2h-5Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm2 4v2h4V7H6Zm6 0v2h6V7h-6ZM6 11v2h3v-2H6Zm5 0v2h7v-2h-7ZM6 15v2h5v-2H6Zm7 0v2h5v-2h-5Z"/>
+                        </svg>
+
                     </div>
+
+
                     <div class="project-content">
-                        <h3>Dynamic Sales Report Dashboard in Excel</h3>
+
+
+                        <h3>
+                            Dynamic Sales Report Dashboard in Excel
+                        </h3>
+
+
                         <p>
+
                             Interactive Excel sales dashboard with
                             dynamic date filtering, live KPIs,
                             marketing channel analysis and salesman
                             performance reporting.
+
                         </p>
+
+
                         <div class="tags">
-                            <span class="tag">Excel</span>
-                            <span class="tag">Data Visualization</span>
+
+                            <span class="tag">
+                                Excel
+                            </span>
+
+                            <span class="tag">
+                                Data Visualization
+                            </span>
+
                         </div>
-                        <button type="button" class="project-link" data-project="financial">
+
+
+                        <button
+                            type="button"
+                            class="project-link"
+                            data-project="financial"
+                        >
+
                             View Project
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11h11.2l-3.6-3.6L14 6l6 6-6 6-1.4-1.4 3.6-3.6H5v-2Z"/></svg>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M5 11h11.2l-3.6-3.6L14 6l6 6-6 6-1.4-1.4 3.6-3.6H5v-2Z"/>
+                            </svg>
+
                         </button>
+
                     </div>
+
                 </div>
 
+
+
+                <!-- PROJECT 2 -->
+
                 <div class="project">
+
+
                     <div class="project-image">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5h2v12h14v2H4Zm3.5-3 3.2-4.2 2.6 2.1L17 8.5l1.5 1.2-5.4 6.8-2.7-2.2L7.5 16Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M4 19V5h2v12h14v2H4Zm3.5-3 3.2-4.2 2.6 2.1L17 8.5l1.5 1.2-5.4 6.8-2.7-2.2L7.5 16Z"/>
+                        </svg>
+
                     </div>
+
+
                     <div class="project-content">
-                        <h3>Dynamic Sales Performance Dashboard</h3>
+
+
+                        <h3>
+                            Dynamic Sales Performance Dashboard
+                        </h3>
+
+
                         <p>
+
                             Interactive sales performance dashboard
                             designed to track KPIs, analyze sales trends
                             and compare business performance dynamically.
+
                         </p>
+
+
                         <div class="tags">
-                            <span class="tag">Excel</span>
-                            <span class="tag">Data Visualization</span>
+
+                            <span class="tag">
+                                Excel
+                            </span>
+
+                            <span class="tag">
+                                Data Visualization
+                            </span>
+
                         </div>
-                        <button type="button" class="project-link" data-project="sales">
+
+
+                        <button
+                            type="button"
+                            class="project-link"
+                            data-project="sales"
+                        >
+
                             View Project
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11h11.2l-3.6-3.6L14 6l6 6-6 6-1.4-1.4 3.6-3.6H5v-2Z"/></svg>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M5 11h11.2l-3.6-3.6L14 6l6 6-6 6-1.4-1.4 3.6-3.6H5v-2Z"/>
+                            </svg>
+
                         </button>
+
                     </div>
+
                 </div>
 
+
+
+                <!-- PROJECT 3 -->
+
                 <div class="project">
+
+
                     <div class="project-image">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v4H5V4Zm0 6h6v10H5V10Zm8 0h6v4h-6v-4Zm0 6h6v4h-6v-4Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M5 4h14v4H5V4Zm0 6h6v10H5V10Zm8 0h6v4h-6v-4Zm0 6h6v4h-6v-4Z"/>
+                        </svg>
+
                     </div>
+
+
                     <div class="project-content">
-                        <h3>Financial Performance Dashboard</h3>
+
+
+                        <h3>
+                            Financial Performance Dashboard
+                        </h3>
+
+
                         <p>
+
                             Interactive financial dashboard designed to
                             visualize KPIs, revenue, expenses, profit trends
                             and departmental performance.
+
                         </p>
+
+
                         <div class="tags">
-                            <span class="tag">Excel Dashboards</span>
-                            <span class="tag">KPI Dashboards</span>
-                            <span class="tag">Microsoft Excel</span>
+
+                            <span class="tag">
+                                Excel Dashboards
+                            </span>
+
+                            <span class="tag">
+                                KPI Dashboards
+                            </span>
+
+                            <span class="tag">
+                                Microsoft Excel
+                            </span>
+
                         </div>
-                        <button type="button" class="project-link" data-project="analysis">
+
+
+                        <button
+                            type="button"
+                            class="project-link"
+                            data-project="analysis"
+                        >
+
                             View Project
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11h11.2l-3.6-3.6L14 6l6 6-6 6-1.4-1.4 3.6-3.6H5v-2Z"/></svg>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M5 11h11.2l-3.6-3.6L14 6l6 6-6 6-1.4-1.4 3.6-3.6H5v-2Z"/>
+                            </svg>
+
                         </button>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- CV -->
+
+
+        <!-- =================================================
+             CV
+        ================================================== -->
+
         <section id="cv">
+
+
             <h2 class="section-title">
-                <span class="section-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm7 1.5V8h3.5L14 4.5ZM8 12h8v1.5H8V12Zm0 3.5h8V17H8v-1.5Zm0-7h4V10H8V8.5Z"/></svg>
+
+
+                <span
+                    class="section-icon"
+                    aria-hidden="true"
+                >
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm7 1.5V8h3.5L14 4.5ZM8 12h8v1.5H8V12Zm0 3.5h8V17H8v-1.5Zm0-7h4V10H8V8.5Z"/>
+                    </svg>
+
                 </span>
-                My <span>CV</span>
+
+
+                My
+                <span>CV</span>
+
             </h2>
 
+
             <div class="cv-box">
-                <div class="cv-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm7 1.5V8h3.5L14 4.5ZM8 12h8v1.5H8V12Zm0 3.5h8V17H8v-1.5Z"/></svg>
+
+
+                <div
+                    class="cv-icon"
+                    aria-hidden="true"
+                >
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm7 1.5V8h3.5L14 4.5ZM8 12h8v1.5H8V12Zm0 3.5h8V17H8v-1.5Z"/>
+                    </svg>
+
                 </div>
-                <h2>Interested in my background?</h2>
+
+
+                <h2>
+                    Interested in my background?
+                </h2>
+
+
                 <p>
+
                     You can view my CV to learn more about
                     my education, skills, projects and
                     experience.
+
                 </p>
+
+
                 <div class="cv-buttons">
-                    <a href="my%20cv/Abdallah_M_Alkkady_CV.pdf" target="_blank" class="btn primary">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v10.2l3.6-3.6L17 13l-5 5-5-5 1.4-1.4 3.6 3.6V5h2ZM5 19h14v2H5v-2Z"/></svg>
+
+
+                    <a
+                        href="my%20cv/Abdallah_M_Alkkady_CV.pdf"
+                        target="_blank"
+                        class="btn primary"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M12 5v10.2l3.6-3.6L17 13l-5 5-5-5 1.4-1.4 3.6 3.6V5h2ZM5 19h14v2H5v-2Z"/>
+                        </svg>
+
                         View My CV
+
                     </a>
-                    <a href="my%20cv/Abdallah_M_Alkkady_CV.pdf" download class="btn">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10.2l3.6-3.6L17 11l-5 5-5-5 1.4-1.4L11 13.2V3h1Zm-7 14h14v2H5v-2Z"/></svg>
+
+
+                    <a
+                        href="my%20cv/Abdallah_M_Alkkady_CV.pdf"
+                        download
+                        class="btn"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M12 3v10.2l3.6-3.6L17 11l-5 5-5-5 1.4-1.4L11 13.2V3h1Zm-7 14h14v2H5v-2Z"/>
+                        </svg>
+
                         Download CV
+
                     </a>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- CONTACT -->
+
+
+        <!-- =================================================
+             CONTACT
+        ================================================== -->
+
         <section id="contact">
+
+
             <h2 class="section-title">
-                <span class="section-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6Zm-2 0-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/></svg>
+
+
+                <span
+                    class="section-icon"
+                    aria-hidden="true"
+                >
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6Zm-2 0-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/>
+                    </svg>
+
                 </span>
-                Let's <span>Connect</span>
+
+
+                Let's
+                <span>Connect</span>
+
             </h2>
 
+
             <div class="contact-container">
+
+
                 <div class="contact-info">
-                    <h2>Let's work together.</h2>
+
+
+                    <h2>
+                        Let's work together.
+                    </h2>
+
+
                     <p>
+
                         Have a project, opportunity or
                         simply want to connect?
+
                         Feel free to reach out.
+
                     </p>
 
+
                     <div class="social-links">
+
+
                         <a href="mailto:abd987yu@gmail.com">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6Zm-2 0-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/></svg>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6Zm-2 0-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/>
+                            </svg>
+
                             Email
+
                         </a>
-                        <a href="https://www.linkedin.com/in/abdallah15m/" target="_blank" rel="noopener noreferrer">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9H4V20h2.5V9ZM5.25 4A1.75 1.75 0 1 0 5.26 7.5 1.75 1.75 0 0 0 5.25 4ZM20 20h-2.5v-5.6c0-1.8-.7-2.7-2-2.7-1.1 0-1.7.7-2 1.4V20H11V9h2.4v1.5c.5-.9 1.6-1.8 3.4-1.8 2.4 0 3.2 1.6 3.2 4.4V20Z"/></svg>
+
+
+                        <a
+                            href="https://www.linkedin.com/in/abdallah15m/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M6.5 9H4V20h2.5V9ZM5.25 4A1.75 1.75 0 1 0 5.26 7.5 1.75 1.75 0 0 0 5.25 4ZM20 20h-2.5v-5.6c0-1.8-.7-2.7-2-2.7-1.1 0-1.7.7-2 1.4V20H11V9h2.4v1.5c.5-.9 1.6-1.8 3.4-1.8 2.4 0 3.2 1.6 3.2 4.4V20Z"/>
+                            </svg>
+
                             LinkedIn
+
                         </a>
-                        <a href="https://github.com/Abdallah15M" target="_blank" rel="noopener noreferrer">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.4-1.1-1-1.4-1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.5-1.1-4.5-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.8 1a9.5 9.5 0 0 1 5 0c2-1.3 2.8-1 2.8-1a3.6 3.6 0 0 1 .1 2.7 3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.7-4.5 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>
+
+
+                        <a
+                            href="https://github.com/Abdallah15M"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.4-1.1-1-1.4-1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.5-1.1-4.5-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.8 1a9.5 9.5 0 0 1 5 0c2-1.3 2.8-1 2.8-1a3.6 3.6 0 0 1 .1 2.7 3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.7-4.5 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/>
+                            </svg>
+
                             GitHub
+
                         </a>
+
                     </div>
+
                 </div>
 
-                <form class="contact-form" id="contactForm">
-                    <label class="field">
-                        <span class="field-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
-                        </span>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </label>
+
+                <form
+                    class="contact-form"
+                    id="contactForm"
+                >
+
 
                     <label class="field">
-                        <span class="field-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6Zm-2 0-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/></svg>
+
+
+                        <span
+                            class="field-icon"
+                            aria-hidden="true"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/>
+                            </svg>
+
                         </span>
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your Name"
+                            required
+                        >
+
                     </label>
+
+
+                    <label class="field">
+
+
+                        <span
+                            class="field-icon"
+                            aria-hidden="true"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6Zm-2 0-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/>
+                            </svg>
+
+                        </span>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Your Email"
+                            required
+                        >
+
+                    </label>
+
 
                     <label class="field field-textarea">
-                        <span class="field-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4V5Zm2 2v2h12V7H6Zm0 4v2h8v-2H6Zm0 4v2h10v-2H6Z"/></svg>
+
+
+                        <span
+                            class="field-icon"
+                            aria-hidden="true"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 5h16v14H4V5Zm2 2v2h12V7H6Zm0 4v2h8v-2H6Zm0 4v2h10v-2H6Z"/>
+                            </svg>
+
                         </span>
-                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Your Message"
+                            required
+                        ></textarea>
+
                     </label>
 
-                    <button type="submit" class="btn primary" id="sendBtn">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 11.2 20 4l-5.3 16.6-3.4-5.8-5.8-3.6Zm4.3 2.3 2.7 1.7 1.6 2.7L17.2 8.4 7.7 13.5Z"/></svg>
-                        Send Message
-                    </button>
+
+                    <div class="contact-submit-area">
+
+    <button
+        type="submit"
+        class="btn primary"
+        id="sendBtn"
+    >
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+            <path d="M3.4 11.2 20 4l-5.3 16.6-3.4-5.8-5.8-3.6Zm4.3 2.3 2.7 1.7 1.6 2.7L17.2 8.4 7.7 13.5Z"/>
+        </svg>
+
+        <span id="sendBtnText">
+            Send Message
+        </span>
+    </button>
+
+
+    <div
+        class="form-status"
+        id="formStatus"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+</div>
+
                 </form>
+
             </div>
+
         </section>
 
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
         <footer>
-            © 2026 Abdallah M.Alkady. All Rights Reserved.
+
+            © 2026 Abdallah M.Alkady.
+            All Rights Reserved.
+
         </footer>
+
+
     </div>
+
+
 
     <!-- =====================================================
          PROJECT DETAILS PAGE
     ====================================================== -->
-    <div id="projectDetailsPage" aria-hidden="true">
+
+    <div
+        id="projectDetailsPage"
+        aria-hidden="true"
+    >
+
+
         <div class="project-details-topbar">
-            <button type="button" id="backToProjects" class="back-project-btn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6 1.4-1.4L11.3 12l4.6-4.6L14.5 6Z"/></svg>
+
+
+            <button
+                type="button"
+                id="backToProjects"
+                class="back-project-btn"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M14.5 6 8.5 12l6 6 1.4-1.4L11.3 12l4.6-4.6L14.5 6Z"/>
+                </svg>
+
                 Back to Projects
+
             </button>
+
+
             <div class="project-details-brand">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/></svg>
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/>
+                </svg>
+
                 ABDALLAH M.ALKADY • CASE STUDY
+
             </div>
+
         </div>
 
+
+
         <main class="project-details-container">
+
+
             <div class="project-details-intro">
+
+
                 <div class="project-details-label">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>
+                    </svg>
+
                     DATA ANALYSIS PROJECT
+
                 </div>
-                <h1 id="projectDetailsTitle">Project Title</h1>
-                <p id="projectDetailsSubtitle">Project Description</p>
-                <div class="project-details-tags" id="projectDetailsTags"></div>
-                <div class="project-meta" id="projectDetailsMeta"></div>
+
+
+                <h1 id="projectDetailsTitle">
+                    Project Title
+                </h1>
+
+
+                <p id="projectDetailsSubtitle">
+                    Project Description
+                </p>
+
+
+                <div
+                    class="project-details-tags"
+                    id="projectDetailsTags"
+                ></div>
+
+
+                <div
+                    class="project-meta"
+                    id="projectDetailsMeta"
+                ></div>
+
             </div>
+
+
 
             <section class="project-screenshots">
+
+
                 <div class="project-screenshots-heading">
+
+
                     <div>
+
+
                         <span>
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v8.2l3.2-3.2 2.3 2.3 3.4-3.4L19 15.5V7H5Zm2.5 2.2A1.3 1.3 0 1 0 7.5 7a1.3 1.3 0 0 0 0 2.2Z"/></svg>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v8.2l3.2-3.2 2.3 2.3 3.4-3.4L19 15.5V7H5Zm2.5 2.2A1.3 1.3 0 1 0 7.5 7a1.3 1.3 0 0 0 0 2.2Z"/>
+                            </svg>
+
                             VISUAL OVERVIEW
+
                         </span>
-                        <h2>Project Screenshots</h2>
+
+
+                        <h2>
+                            Project Screenshots
+                        </h2>
+
                     </div>
-                    <p>Click any screenshot to expand and zoom.</p>
+
+
+                    <p>
+                        Click any screenshot to expand and zoom.
+                    </p>
+
                 </div>
-                <div class="project-screenshots-grid" id="projectScreenshotsGrid"></div>
+
+
+                <div
+                    class="project-screenshots-grid"
+                    id="projectScreenshotsGrid"
+                ></div>
+
             </section>
 
+
+
             <div class="project-information-grid">
+
+
                 <div class="project-info-card">
-                    <div class="project-info-number">01</div>
+
+
+                    <div class="project-info-number">
+                        01
+                    </div>
+
+
                     <h2>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9A9 9 0 0 0 12 3Zm0 4a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 12 7Zm-1.5 4h3v7h-3v-7Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M12 3a9 9 0 1 0 9 9A9 9 0 0 0 12 3Zm0 4a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 12 7Zm-1.5 4h3v7h-3v-7Z"/>
+                        </svg>
+
                         About This Project
+
                     </h2>
+
+
                     <p id="projectDetailsDescription"></p>
+
                 </div>
+
+
 
                 <div class="project-info-card">
-                    <div class="project-info-number">02</div>
+
+
+                    <div class="project-info-number">
+                        02
+                    </div>
+
+
                     <h2>
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 3h7v4h-7v-4Z"/></svg>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 3h7v4h-7v-4Z"/>
+                        </svg>
+
                         Tools Used
+
                     </h2>
-                    <div class="project-tools-list" id="projectDetailsTools"></div>
+
+
+                    <div
+                        class="project-tools-list"
+                        id="projectDetailsTools"
+                    ></div>
+
                 </div>
+
             </div>
 
-            <div class="project-info-card project-full-card">
-                <div class="project-info-number">03</div>
+
+
+            <div
+                class="project-info-card project-full-card"
+            >
+
+
+                <div class="project-info-number">
+                    03
+                </div>
+
+
                 <h2>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v4H5V4Zm0 6h6v10H5V10Zm8 0h6v4h-6v-4Zm0 6h6v4h-6v-4Z"/></svg>
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M5 4h14v4H5V4Zm0 6h6v10H5V10Zm8 0h6v4h-6v-4Zm0 6h6v4h-6v-4Z"/>
+                    </svg>
+
                     Key Components
+
                 </h2>
-                <div class="project-highlights" id="projectDetailsHighlights"></div>
+
+
+                <div
+                    class="project-highlights"
+                    id="projectDetailsHighlights"
+                ></div>
+
             </div>
 
-            <div class="project-info-card project-full-card">
-                <div class="project-info-number">04</div>
+
+
+            <div
+                class="project-info-card project-full-card"
+            >
+
+
+                <div class="project-info-number">
+                    04
+                </div>
+
+
                 <h2>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v2H9V3Zm1 4h4l1 3h3v2h-1.1l-1.3 7H6.4L5.1 12H4V10h3l1-3Zm.9 5-.7 4h4.6l-.7-4H10.9Z"/></svg>
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M9 3h6v2H9V3Zm1 4h4l1 3h3v2h-1.1l-1.3 7H6.4L5.1 12H4V10h3l1-3Zm.9 5-.7 4h4.6l-.7-4H10.9Z"/>
+                    </svg>
+
                     What I Worked On
+
                 </h2>
-                <div class="project-points" id="projectDetailsWork"></div>
+
+
+                <div
+                    class="project-points"
+                    id="projectDetailsWork"
+                ></div>
+
             </div>
 
-            <div class="project-info-card project-full-card">
-                <div class="project-info-number">05</div>
+
+
+            <div
+                class="project-info-card project-full-card"
+            >
+
+
+                <div class="project-info-number">
+                    05
+                </div>
+
+
                 <h2>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/></svg>
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/>
+                    </svg>
+
                     Project Focus
+
                 </h2>
-                <div class="project-points" id="projectDetailsInsights"></div>
+
+
+                <div
+                    class="project-points"
+                    id="projectDetailsInsights"
+                ></div>
+
             </div>
+
+
 
             <div class="project-bottom-navigation">
-                <button type="button" class="btn" id="backToProjectsBottom">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6 8.5 12l6 6 1.4-1.4L11.3 12l4.6-4.6L14.5 6Z"/></svg>
+
+
+                <button
+                    type="button"
+                    class="btn"
+                    id="backToProjectsBottom"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M14.5 6 8.5 12l6 6 1.4-1.4L11.3 12l4.6-4.6L14.5 6Z"/>
+                    </svg>
+
                     Back to Projects
+
                 </button>
-                <button type="button" class="btn primary" id="nextProjectBtn">
+
+
+                <button
+                    type="button"
+                    class="btn primary"
+                    id="nextProjectBtn"
+                >
+
                     Next Project
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6 15.5 12l-6 6-1.4-1.4 4.6-4.6-4.6-4.6L9.5 6Z"/></svg>
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M9.5 6 15.5 12l-6 6-1.4-1.4 4.6-4.6-4.6-4.6L9.5 6Z"/>
+                    </svg>
+
                 </button>
+
             </div>
+
         </main>
+
     </div>
+
+
 
     <!-- =====================================================
          PROJECT LIGHTBOX
     ====================================================== -->
-    <div id="projectLightbox">
-        <button type="button" id="closeProjectLightbox" class="project-lightbox-close" aria-label="Close image">×</button>
+
+    <div
+        id="projectLightbox"
+        aria-hidden="true"
+    >
+
+
+        <button
+            type="button"
+            id="closeProjectLightbox"
+            class="project-lightbox-close"
+            aria-label="Close image"
+        >
+            ×
+        </button>
+
 
         <div class="project-lightbox-controls">
-            <button type="button" id="zoomOutBtn" aria-label="Zoom out">−</button>
-            <button type="button" id="zoomResetBtn" aria-label="Reset zoom">
-                <span id="zoomPercentage">100%</span>
+
+
+            <button
+                type="button"
+                id="zoomOutBtn"
+                aria-label="Zoom out"
+            >
+                −
             </button>
-            <button type="button" id="zoomInBtn" aria-label="Zoom in">+</button>
+
+
+            <button
+                type="button"
+                id="zoomResetBtn"
+                aria-label="Reset zoom"
+            >
+
+                <span id="zoomPercentage">
+                    100%
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                id="zoomInBtn"
+                aria-label="Zoom in"
+            >
+                +
+            </button>
+
         </div>
 
-        <div class="project-lightbox-stage" id="projectLightboxStage">
-            <img id="projectLightboxImage" src="" alt="Project Screenshot" draggable="false">
+
+        <div
+            class="project-lightbox-stage"
+            id="projectLightboxStage"
+        >
+
+            <img
+                id="projectLightboxImage"
+                src=""
+                alt="Project Screenshot"
+                draggable="false"
+            >
+
         </div>
+
     </div>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+    <!-- EMAILJS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+
+    <!-- MAIN JS -->
+
     <script src="script.js"></script>
+
+
 </body>
 
 </html>
