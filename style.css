@@ -5859,3 +5859,177 @@ nav a:focus-visible {
     font-size: 12px;
     font-weight: 700;
 }
+/* =====================================================
+   MOBILE POLISH
+===================================================== */
+
+@media (max-width: 700px) {
+
+    /* -----------------------------
+       PAGE SECTIONS
+    ----------------------------- */
+
+    section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #home {
+        padding-top: calc(var(--nav-h) + 20px);
+        padding-bottom: 36px;
+    }
+
+
+    /* -----------------------------
+       HERO
+    ----------------------------- */
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-visual {
+        order: 1;
+
+        width: 100%;
+        min-height: 290px;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        margin: 0;
+
+        overflow: hidden;
+    }
+
+    .hero-copy {
+        order: 2;
+    }
+
+    .hero-side-photo {
+        width: min(285px, 82vw);
+        max-height: 330px;
+
+        transform: translateY(-5px);
+
+        object-fit: contain;
+        object-position: center bottom;
+    }
+
+    .hero-photo-glow {
+        width: 260px;
+        height: 260px;
+
+        left: 50%;
+        top: 52%;
+
+        transform: translate(-50%, -50%);
+    }
+
+
+    /* -----------------------------
+       HERO TEXT
+    ----------------------------- */
+
+    .hero-label {
+        margin-bottom: 12px;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+        line-height: 1.08;
+        margin-bottom: 10px;
+    }
+
+    .hero h2 {
+        font-size: 1.05rem;
+        margin-bottom: 12px;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------
+       HERO BUTTONS
+    ----------------------------- */
+
+    .hero .buttons {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+
+        margin-top: 20px;
+    }
+
+    .hero .buttons .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+    }
+
+
+    /* -----------------------------
+       SECTION TITLES
+    ----------------------------- */
+
+    .section-title {
+        font-size: 1.55rem;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .section-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    /* -----------------------------
+       CARDS
+    ----------------------------- */
+
+    .project,
+    .skill,
+    .info {
+        border-radius: 14px;
+    }
+
+    .project-content {
+        padding: 16px;
+    }
+
+    .info {
+        padding: 16px;
+    }
+
+
+    /* -----------------------------
+       CONTACT
+    ----------------------------- */
+
+    .contact-container {
+        gap: 24px;
+    }
+
+    .social-links {
+        gap: 8px;
+    }
+
+    .social-links a {
+        flex: 1;
+        justify-content: center;
+        min-width: 120px;
+    }
+
+}
