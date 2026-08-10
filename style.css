@@ -6033,3 +6033,51 @@ nav a:focus-visible {
     }
 
 }
+@media (max-width: 700px) {
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .hero-copy {
+        order: 1;
+    }
+
+    .hero-visual {
+        order: 2;
+
+        width: 100%;
+        min-height: 330px;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        margin-top: 5px;
+
+        overflow: hidden;
+    }
+
+    .hero-side-photo {
+        width: min(310px, 86vw);
+        max-height: 370px;
+
+        transform: none;
+
+        object-fit: contain;
+        object-position: center bottom;
+    }
+
+    .hero-photo-glow {
+        width: 280px;
+        height: 280px;
+
+        left: 50%;
+        top: 52%;
+
+        transform: translate(-50%, -50%);
+    }
+
+}
