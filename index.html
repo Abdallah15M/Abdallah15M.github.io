@@ -7,27 +7,25 @@
 
     <title>Abdallah M.Alkady | Data Analyst</title>
 
-    <link rel="icon" type="image/png" href="./favicon2.png?v=1">
-    <link rel="apple-touch-icon" href="./favicon.png?v=1">
-
     <meta
         name="description"
         content="Portfolio of Abdallah M.Alkady — Data Analyst specializing in Excel, Power BI, and turning data into decisions."
     >
 
-    <!-- Apply theme before page renders -->
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="./favicon2.png?v=2">
+    <link rel="apple-touch-icon" href="./favicon2.png?v=2">
+
+    <!-- APPLY THEME BEFORE PAGE RENDERS -->
     <script>
         (function () {
 
-            const THEME_KEY =
-                "abdallah-portfolio-theme";
+            const THEME_KEY = "abdallah-portfolio-theme";
 
             try {
 
                 const savedTheme =
-                    localStorage.getItem(
-                        THEME_KEY
-                    );
+                    localStorage.getItem(THEME_KEY);
 
                 const systemPrefersDark =
                     window.matchMedia &&
@@ -45,26 +43,24 @@
                                 : "light"
                         );
 
-                document.documentElement
-                    .setAttribute(
-                        "data-theme",
-                        initialTheme
-                    );
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    initialTheme
+                );
 
             } catch (error) {
 
-                document.documentElement
-                    .setAttribute(
-                        "data-theme",
-                        "dark"
-                    );
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    "dark"
+                );
 
             }
 
         })();
     </script>
 
-
+    <!-- GOOGLE FONTS -->
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -76,9 +72,10 @@
         crossorigin
     >
 
+    <!-- PRELOAD HERO IMAGE -->
     <link
         rel="preload"
-        href="profile.png"
+        href="./photo3.png"
         as="image"
     >
 
@@ -87,9 +84,10 @@
         rel="stylesheet"
     >
 
+    <!-- MAIN CSS -->
     <link
         rel="stylesheet"
-        href="style.css"
+        href="./style.css?v=2"
     >
 
 </head>
@@ -109,11 +107,10 @@
 
         <div class="portfolio-loader-shell">
 
-
             <div class="loader-photo-wrap">
 
                 <img
-                    src="profile.png"
+                    src="./profile.png"
                     alt="Abdallah M.Alkady"
                     class="loader-photo"
                     width="180"
@@ -130,11 +127,9 @@
                     DATA ANALYST • PORTFOLIO
                 </div>
 
-
                 <h1 class="loader-name">
                     Abdallah M.Alkady
                 </h1>
-
 
                 <p
                     class="loader-status"
@@ -163,7 +158,6 @@
                         0%
                     </span>
 
-
                     <span class="loader-message">
                         Turning data into decisions.
                     </span>
@@ -191,17 +185,14 @@
 
         <nav>
 
-<!-- =====================================================
-         LOGO
-    ====================================================== -->
             <a
                 href="#home"
                 class="logo"
                 aria-label="Home"
             ></a>
 
-            <ul id="navMenu">
 
+            <ul id="navMenu">
 
                 <li>
 
@@ -326,24 +317,17 @@
                     title="Switch theme"
                 >
 
-
                     <!-- MOON -->
-
                     <svg
                         class="theme-icon theme-icon-moon"
                         viewBox="0 0 24 24"
                         aria-hidden="true"
                     >
-
-                        <path
-                            d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"
-                        />
-
+                        <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/>
                     </svg>
 
 
                     <!-- SUN -->
-
                     <svg
                         class="theme-icon theme-icon-sun"
                         viewBox="0 0 24 24"
@@ -402,108 +386,114 @@
 
         <section id="home">
 
-    <div class="hero">
+            <div class="hero">
 
-        <!-- LEFT SIDE -->
-        <div class="hero-copy">
 
-            <div class="hero-label">
+                <!-- LEFT SIDE -->
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/>
-                </svg>
+                <div class="hero-copy">
 
-                DATA ANALYST • PORTFOLIO
+
+                    <div class="hero-label">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"/>
+                        </svg>
+
+                        DATA ANALYST • PORTFOLIO
+
+                    </div>
+
+
+                    <h1>
+                        Hi,
+                        <br>
+                        I'm
+                        <span>
+                            Abdallah M.Alkady
+                        </span>
+                    </h1>
+
+
+                    <h2>
+                        Data Analyst
+                    </h2>
+
+
+                    <p>
+                        I transform raw data into meaningful insights
+                        and build interactive dashboards that help
+                        turn information into better decisions.
+                    </p>
+
+
+                    <div class="buttons">
+
+                        <a
+                            href="#projects"
+                            class="btn primary"
+                        >
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h10v2H4v-2Z"/>
+                            </svg>
+
+                            View My Projects
+
+                        </a>
+
+
+                        <a
+                            href="#contact"
+                            class="btn"
+                        >
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2v7Z"/>
+                            </svg>
+
+                            Contact Me
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RIGHT SIDE -->
+
+                <div class="hero-visual">
+
+                    <div class="hero-photo-glow"></div>
+
+                    <div class="hero-photo-ring"></div>
+
+                    <img
+                        src="./photo3.png"
+                        alt="Abdallah M.Alkady"
+                        class="hero-side-photo"
+                        width="650"
+                        height="760"
+                        fetchpriority="high"
+                    >
+
+                </div>
 
             </div>
 
+        </section>
 
-            <h1>
-                Hi,
-                <br>
-                I'm
-                <span>
-                    Abdallah M.Alkady
-                </span>
-            </h1>
-
-
-            <h2>
-                Data Analyst
-            </h2>
-
-
-            <p>
-                I transform raw data into meaningful insights
-                and build interactive dashboards that help
-                turn information into better decisions.
-            </p>
-
-
-            <div class="buttons">
-
-                <a
-                    href="#projects"
-                    class="btn primary"
-                >
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path d="M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h10v2H4v-2Z"/>
-                    </svg>
-
-                    View My Projects
-
-                </a>
-
-
-                <a
-                    href="#contact"
-                    class="btn"
-                >
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2v7Z"/>
-                    </svg>
-
-                    Contact Me
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT SIDE -->
-        <div class="hero-visual">
-
-            <div class="hero-photo-glow"></div>
-
-            <div class="hero-photo-ring"></div>
-
-            <img
-                src="photo3.png"
-                alt="Abdallah M.Alkady"
-                class="hero-side-photo"
-                width="650"
-                height="760"
-                fetchpriority="high"
-            >
-
-        </div>
-
-    </div>
-
-</section>
 
 
         <!-- =================================================
@@ -515,7 +505,6 @@
 
             <h2 class="section-title">
 
-
                 <span
                     class="section-icon"
                     aria-hidden="true"
@@ -526,7 +515,6 @@
                     </svg>
 
                 </span>
-
 
                 About
                 <span>Me</span>
@@ -575,7 +563,6 @@
 
                     <div class="info">
 
-
                         <div
                             class="info-icon"
                             aria-hidden="true"
@@ -594,20 +581,16 @@
 
 
                         <p>
-
                             Faculty of Computers and Artificial Intelligence - MNU
-
                             <br>
-
                             Data Analysis Diploma - Eraasoft
-
                         </p>
 
                     </div>
 
 
-                    <div class="info">
 
+                    <div class="info">
 
                         <div
                             class="info-icon"
@@ -632,8 +615,8 @@
                     </div>
 
 
-                    <div class="info">
 
+                    <div class="info">
 
                         <div
                             class="info-icon"
@@ -658,8 +641,8 @@
                     </div>
 
 
-                    <div class="info">
 
+                    <div class="info">
 
                         <div
                             class="info-icon"
@@ -723,7 +706,6 @@
 
                 <div class="skill">
 
-
                     <div
                         class="skill-icon"
                         aria-hidden="true"
@@ -735,11 +717,9 @@
 
                     </div>
 
-
                     <h3>
                         Excel
                     </h3>
-
 
                     <p>
                         Data Analysis & Reporting
@@ -748,8 +728,8 @@
                 </div>
 
 
-                <div class="skill">
 
+                <div class="skill">
 
                     <div
                         class="skill-icon"
@@ -762,11 +742,9 @@
 
                     </div>
 
-
                     <h3>
                         Power BI
                     </h3>
-
 
                     <p>
                         Dashboards & Visualization
@@ -775,8 +753,8 @@
                 </div>
 
 
-                <div class="skill">
 
+                <div class="skill">
 
                     <div
                         class="skill-icon"
@@ -789,11 +767,9 @@
 
                     </div>
 
-
                     <h3>
                         Data Visualization
                     </h3>
-
 
                     <p>
                         Charts, KPIs & Storytelling
@@ -802,8 +778,8 @@
                 </div>
 
 
-                <div class="skill">
 
+                <div class="skill">
 
                     <div
                         class="skill-icon"
@@ -816,11 +792,9 @@
 
                     </div>
 
-
                     <h3>
                         Analytical Thinking
                     </h3>
-
 
                     <p>
                         Insights & Decision Support
@@ -843,7 +817,6 @@
 
             <h2 class="section-title">
 
-
                 <span
                     class="section-icon"
                     aria-hidden="true"
@@ -854,7 +827,6 @@
                     </svg>
 
                 </span>
-
 
                 My
                 <span>Projects</span>
@@ -868,7 +840,6 @@
                 <!-- PROJECT 1 -->
 
                 <div class="project">
-
 
                     <div class="project-image">
 
@@ -884,19 +855,16 @@
 
                     <div class="project-content">
 
-
                         <h3>
                             Dynamic Sales Report Dashboard in Excel
                         </h3>
 
 
                         <p>
-
                             Interactive Excel sales dashboard with
                             dynamic date filtering, live KPIs,
                             marketing channel analysis and salesman
                             performance reporting.
-
                         </p>
 
 
@@ -940,7 +908,6 @@
 
                 <div class="project">
 
-
                     <div class="project-image">
 
                         <svg
@@ -955,18 +922,15 @@
 
                     <div class="project-content">
 
-
                         <h3>
                             Dynamic Sales Performance Dashboard
                         </h3>
 
 
                         <p>
-
                             Interactive sales performance dashboard
                             designed to track KPIs, analyze sales trends
                             and compare business performance dynamically.
-
                         </p>
 
 
@@ -1010,7 +974,6 @@
 
                 <div class="project">
 
-
                     <div class="project-image">
 
                         <svg
@@ -1025,18 +988,15 @@
 
                     <div class="project-content">
 
-
                         <h3>
                             Financial Performance Dashboard
                         </h3>
 
 
                         <p>
-
                             Interactive financial dashboard designed to
                             visualize KPIs, revenue, expenses, profit trends
                             and departmental performance.
-
                         </p>
 
 
@@ -1093,7 +1053,6 @@
 
             <h2 class="section-title">
 
-
                 <span
                     class="section-icon"
                     aria-hidden="true"
@@ -1105,7 +1064,6 @@
 
                 </span>
 
-
                 My
                 <span>CV</span>
 
@@ -1113,7 +1071,6 @@
 
 
             <div class="cv-box">
-
 
                 <div
                     class="cv-icon"
@@ -1133,20 +1090,18 @@
 
 
                 <p>
-
                     You can view my CV to learn more about
                     my education, skills, projects and
                     experience.
-
                 </p>
 
 
                 <div class="cv-buttons">
 
-
                     <a
-                        href="my%20cv/Abdallah_M_Alkkady_CV.pdf"
+                        href="./my%20cv/Abdallah_M_Alkkady_CV.pdf"
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="btn primary"
                     >
 
@@ -1163,7 +1118,7 @@
 
 
                     <a
-                        href="my%20cv/Abdallah_M_Alkkady_CV.pdf"
+                        href="./my%20cv/Abdallah_M_Alkkady_CV.pdf"
                         download
                         class="btn"
                     >
@@ -1196,7 +1151,6 @@
 
             <h2 class="section-title">
 
-
                 <span
                     class="section-icon"
                     aria-hidden="true"
@@ -1207,7 +1161,6 @@
                     </svg>
 
                 </span>
-
 
                 Let's
                 <span>Connect</span>
@@ -1220,24 +1173,23 @@
 
                 <div class="contact-info">
 
-
                     <h2>
                         Let's work together.
                     </h2>
 
 
                     <p>
-
                         Have a project, opportunity or
                         simply want to connect?
 
                         Feel free to reach out.
-
                     </p>
 
 
                     <div class="social-links">
 
+
+                        <!-- EMAIL -->
 
                         <a href="mailto:abd987yu@gmail.com">
 
@@ -1252,6 +1204,9 @@
 
                         </a>
 
+
+
+                        <!-- LINKEDIN -->
 
                         <a
                             href="https://www.linkedin.com/in/abdallah15m/"
@@ -1270,6 +1225,9 @@
 
                         </a>
 
+
+
+                        <!-- GITHUB -->
 
                         <a
                             href="https://github.com/Abdallah15M"
@@ -1293,6 +1251,7 @@
                 </div>
 
 
+
                 <form
                     class="contact-form"
                     id="contactForm"
@@ -1300,7 +1259,6 @@
 
 
                     <label class="field">
-
 
                         <span
                             class="field-icon"
@@ -1325,8 +1283,8 @@
                     </label>
 
 
-                    <label class="field">
 
+                    <label class="field">
 
                         <span
                             class="field-icon"
@@ -1351,8 +1309,8 @@
                     </label>
 
 
-                    <label class="field field-textarea">
 
+                    <label class="field field-textarea">
 
                         <span
                             class="field-icon"
@@ -1376,34 +1334,37 @@
                     </label>
 
 
+
                     <div class="contact-submit-area">
 
-    <button
-        type="submit"
-        class="btn primary"
-        id="sendBtn"
-    >
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-        >
-            <path d="M3.4 11.2 20 4l-5.3 16.6-3.4-5.8-5.8-3.6Zm4.3 2.3 2.7 1.7 1.6 2.7L17.2 8.4 7.7 13.5Z"/>
-        </svg>
+                        <button
+                            type="submit"
+                            class="btn primary"
+                            id="sendBtn"
+                        >
 
-        <span id="sendBtnText">
-            Send Message
-        </span>
-    </button>
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M3.4 11.2 20 4l-5.3 16.6-3.4-5.8-5.8-3.6Zm4.3 2.3 2.7 1.7 1.6 2.7L17.2 8.4 7.7 13.5Z"/>
+                            </svg>
+
+                            <span id="sendBtnText">
+                                Send Message
+                            </span>
+
+                        </button>
 
 
-    <div
-        class="form-status"
-        id="formStatus"
-        role="status"
-        aria-live="polite"
-    ></div>
+                        <div
+                            class="form-status"
+                            id="formStatus"
+                            role="status"
+                            aria-live="polite"
+                        ></div>
 
-</div>
+                    </div>
 
                 </form>
 
@@ -1418,10 +1379,7 @@
         ================================================== -->
 
         <footer>
-
-            © 2026 Abdallah M.Alkady.
-            All Rights Reserved.
-
+            © 2026 Abdallah M.Alkady. All Rights Reserved.
         </footer>
 
 
@@ -1573,7 +1531,6 @@
 
                 <div class="project-info-card">
 
-
                     <div class="project-info-number">
                         01
                     </div>
@@ -1600,7 +1557,6 @@
 
 
                 <div class="project-info-card">
-
 
                     <div class="project-info-number">
                         02
@@ -1632,10 +1588,7 @@
 
 
 
-            <div
-                class="project-info-card project-full-card"
-            >
-
+            <div class="project-info-card project-full-card">
 
                 <div class="project-info-number">
                     03
@@ -1665,10 +1618,7 @@
 
 
 
-            <div
-                class="project-info-card project-full-card"
-            >
-
+            <div class="project-info-card project-full-card">
 
                 <div class="project-info-number">
                     04
@@ -1698,10 +1648,7 @@
 
 
 
-            <div
-                class="project-info-card project-full-card"
-            >
-
+            <div class="project-info-card project-full-card">
 
                 <div class="project-info-number">
                     05
@@ -1860,7 +1807,7 @@
 
     <!-- MAIN JS -->
 
-    <script src="script.js"></script>
+    <script src="./script.js?v=2"></script>
 
 
 </body>
