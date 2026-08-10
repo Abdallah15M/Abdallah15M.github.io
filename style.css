@@ -6081,3 +6081,41 @@ nav a:focus-visible {
     }
 
 }
+#intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-loader-shell {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-loader {
+    width: min(680px, 88vw);
+    margin: 0 auto;
+}
+.loader-status,
+.loader-message {
+    color: #ffe36e;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+/* Excel skill icon fix */
+.skill-icon .excel-skill-icon {
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.7 !important;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.skill-icon .excel-skill-icon rect,
+.skill-icon .excel-skill-icon path {
+    fill: none !important;
+    stroke: currentColor !important;
+}
