@@ -655,6 +655,175 @@ function startPortfolioLoader() {
         window.location.hash;
 
 
+    /*
+        When moving between index.html and projects.html,
+        skip the loader completely.
+
+        The flag is created just before the user leaves
+        the current page and removed immediately after
+        the destination page reads it.
+    */
+
+    let skipLoader =
+        false;
+
+
+    try {
+
+        skipLoader =
+            sessionStorage.getItem(
+                "abdallah-skip-next-loader"
+            ) === "true";
+
+
+        if (
+            skipLoader
+        ) {
+
+            sessionStorage.removeItem(
+                "abdallah-skip-next-loader"
+            );
+
+        }
+
+    } catch (
+        error
+    ) {
+
+        console.warn(
+            "Could not read navigation loader state:",
+            error
+        );
+
+    }
+
+
+    if (
+        skipLoader
+    ) {
+
+        loaderFinished =
+            true;
+
+
+        updateLoader(
+            100
+        );
+
+
+        document.body
+            .classList
+            .add(
+                "loader-complete"
+            );
+
+
+        document.body
+            .classList
+            .add(
+                "site-open"
+            );
+
+
+        if (
+            intro
+        ) {
+
+            intro.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+
+
+        /*
+            If the destination contains a section hash
+            such as #home, #about, #skills, #projects,
+            #cv or #contact, go to it immediately.
+        */
+
+        requestAnimationFrame(
+
+            function () {
+
+                if (
+                    hash
+
+                    &&
+
+                    !hash.startsWith(
+                        "#project-"
+                    )
+                ) {
+
+                    const targetId =
+                        hash.slice(
+                            1
+                        );
+
+
+                    const target =
+                        document.getElementById(
+                            targetId
+                        );
+
+
+                    if (
+                        target
+                    ) {
+
+                        target.scrollIntoView({
+
+                            behavior:
+                                "auto",
+
+                            block:
+                                "start"
+
+                        });
+
+
+                        updateActiveNav();
+
+
+                        return;
+
+                    }
+
+                }
+
+
+                if (
+                    !hash
+                ) {
+
+                    window.scrollTo({
+
+                        top:
+                            0,
+
+                        behavior:
+                            "auto"
+
+                    });
+
+                }
+
+            }
+
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+        Direct project URLs already skip the loader.
+    */
+
     if (
         hash.startsWith(
             "#project-"
@@ -701,6 +870,11 @@ function startPortfolioLoader() {
     }
 
 
+    /*
+        Normal first visit:
+        keep the original portfolio loader.
+    */
+
     updateLoader(
         0
     );
@@ -736,6 +910,225 @@ if (
     startPortfolioLoader();
 
 }
+
+
+
+/* =====================================================
+SKIP LOADER BETWEEN PORTFOLIO PAGES
+===================================================== */
+
+/*
+    The normal loader is still shown when the website
+    is opened normally for the first time.
+
+    It is skipped only when navigating between:
+        index.html
+        projects.html
+
+    This includes:
+        View All Projects
+        Back to Portfolio
+        Home
+        About
+        Skills
+        CV
+        Contact
+*/
+
+document.addEventListener(
+
+    "click",
+
+    function (
+        event
+    ) {
+
+        const link =
+            event.target.closest(
+                "a[href]"
+            );
+
+
+        if (
+            !link
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+            Do not interfere with:
+            Ctrl/Cmd click, Shift click,
+            Alt click or non-left-click navigation.
+        */
+
+        if (
+            event.defaultPrevented
+
+            ||
+
+            event.button !== 0
+
+            ||
+
+            event.ctrlKey
+
+            ||
+
+            event.metaKey
+
+            ||
+
+            event.shiftKey
+
+            ||
+
+            event.altKey
+        ) {
+
+            return;
+
+        }
+
+
+        const rawHref =
+            link.getAttribute(
+                "href"
+            );
+
+
+        if (
+            !rawHref
+        ) {
+
+            return;
+
+        }
+
+
+        let destination;
+
+
+        try {
+
+            destination =
+                new URL(
+                    rawHref,
+                    window.location.href
+                );
+
+        } catch (
+            error
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+            Only handle links inside this same website.
+        */
+
+        if (
+            destination.origin !==
+            window.location.origin
+        ) {
+
+            return;
+
+        }
+
+
+        const currentFile =
+            window.location.pathname
+                .split("/")
+                .pop()
+
+            ||
+
+            "index.html";
+
+
+        const destinationFile =
+            destination.pathname
+                .split("/")
+                .pop()
+
+            ||
+
+            "index.html";
+
+
+        const portfolioFiles = [
+
+            "index.html",
+
+            "projects.html"
+
+        ];
+
+
+        const isCurrentPortfolioPage =
+            portfolioFiles.includes(
+                currentFile
+            );
+
+
+        const isDestinationPortfolioPage =
+            portfolioFiles.includes(
+                destinationFile
+            );
+
+
+        const isCrossPageNavigation =
+            isCurrentPortfolioPage
+
+            &&
+
+            isDestinationPortfolioPage
+
+            &&
+
+            currentFile !==
+            destinationFile;
+
+
+        if (
+            !isCrossPageNavigation
+        ) {
+
+            return;
+
+        }
+
+
+        try {
+
+            sessionStorage.setItem(
+
+                "abdallah-skip-next-loader",
+
+                "true"
+
+            );
+
+        } catch (
+            error
+        ) {
+
+            console.warn(
+                "Could not save navigation loader state:",
+                error
+            );
+
+        }
+
+    }
+
+);
 
 
 
@@ -1311,6 +1704,8 @@ PROJECT DATA
 
 const projectOrder = [
 
+    "adventureWorks",
+
     "financial",
 
     "sales",
@@ -1333,6 +1728,10 @@ const projectsData = {
 
         subtitle:
             "A fully interactive Excel sales dashboard that automatically updates the title, date range, KPIs and summary tables based on the selected reporting period.",
+
+
+        cardDescription:
+            "Interactive Excel sales dashboard with dynamic date filtering, live KPIs, marketing channel analysis and salesman performance reporting.",
 
 
         type:
@@ -1476,6 +1875,10 @@ const projectsData = {
 
         subtitle:
             "Track sales performance across branches and salesmen with live KPIs, date filters, and visual branch comparison.",
+
+
+        cardDescription:
+            "Interactive sales performance dashboard designed to track KPIs, analyze sales trends and compare business performance dynamically.",
 
 
         type:
@@ -1627,6 +2030,10 @@ const projectsData = {
             "Interactive financial dashboard for revenue, expenses, profit trends, and departmental performance.",
 
 
+        cardDescription:
+            "Interactive financial dashboard designed to visualize KPIs, revenue, expenses, profit trends and departmental performance.",
+
+
         type:
             "Financial Dashboard",
 
@@ -1761,9 +2168,590 @@ const projectsData = {
 
         ]
 
+    },
+
+
+    /* =====================================================
+       ADVENTURE WORKS
+    ===================================================== */
+
+    adventureWorks: {
+
+
+        title:
+            "Adventure Works Dashboard",
+
+
+        subtitle:
+            "Interactive Power BI dashboard designed to explore sales performance, trends, products, customers and geographic insights.",
+
+
+        cardDescription:
+            "Interactive Adventure Works dashboard for analyzing sales KPIs, trends, product performance, customers and geographic results.",
+
+
+        type:
+            "Power BI Dashboard",
+
+
+        tags: [
+
+            "Power BI",
+
+            "Data Analysis",
+
+            "Data Visualization"
+
+        ],
+
+
+        description:
+            "I built this Adventure Works dashboard as part of my Data Analysis learning journey to transform business data into a clear and interactive reporting experience. The project combines multiple report views to analyze overall performance, sales trends, products, customers and geographic results while making it easy to explore the data from different perspectives.",
+
+
+        tools: [
+
+            "Power BI",
+
+            "Data Analysis",
+
+            "Data Visualization"
+
+        ],
+
+
+        highlights: [
+
+
+            {
+
+                title:
+                    "Executive Overview",
+
+                text:
+                    "A high-level dashboard view with important KPIs and business performance indicators."
+
+            },
+
+
+            {
+
+                title:
+                    "Sales Performance",
+
+                text:
+                    "Analyze sales performance and monitor changes across different reporting views."
+
+            },
+
+
+            {
+
+                title:
+                    "Trend Analysis",
+
+                text:
+                    "Visualize performance trends over time using interactive charts and KPI indicators."
+
+            },
+
+
+            {
+
+                title:
+                    "Geographic Analysis",
+
+                text:
+                    "Explore business performance across different geographic locations using map-based visualization."
+
+            },
+
+
+            {
+
+                title:
+                    "Detailed Analysis",
+
+                text:
+                    "Additional report pages provide deeper analysis of products, customers and business performance."
+
+            }
+
+        ],
+
+
+        work: [
+
+            "Built a multi-page Adventure Works business intelligence dashboard.",
+
+            "Designed an executive overview for quick KPI monitoring.",
+
+            "Created interactive visuals for sales and performance analysis.",
+
+            "Added trend analysis to make changes in performance easier to understand.",
+
+            "Created geographic reporting using map visualization.",
+
+            "Built additional analytical report pages for deeper exploration.",
+
+            "Designed a consistent dashboard layout across multiple pages."
+
+        ],
+
+
+        insights: [
+
+            "Provides a quick overview of overall business performance.",
+
+            "Multiple report pages make detailed analysis easier to navigate.",
+
+            "Trend visuals help identify changes in performance over time.",
+
+            "Geographic visualization helps compare performance across locations.",
+
+            "Interactive reporting allows users to explore the data from multiple perspectives.",
+
+            "Transforms Adventure Works data into a structured visual reporting experience."
+
+        ],
+
+
+        images: [
+
+            "./images/Adventure Works/adventure works-1.png",
+
+            "./images/Adventure Works/adventure works-2.png",
+
+            "./images/Adventure Works/adventure works-3.png",
+
+            "./images/Adventure Works/adventure works-4.png",
+
+            "./images/Adventure Works/adventure works-5.png",
+
+            "./images/Adventure Works/adventure works-6.png",
+
+            "./images/Adventure Works/adventure works-7.png"
+
+        ]
+
     }
 
 };
+
+
+
+/* =====================================================
+PROJECT CARD ICONS
+===================================================== */
+
+/*
+    These icons are used by projects.html.
+
+    The home page keeps its existing three static cards,
+    while the dedicated projects page is generated from
+    projectsData automatically.
+*/
+
+const projectCardIcons = {
+
+    financial:
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm2 4v2h4V7H6Zm6 0v2h6V7h-6ZM6 11v2h3v-2H6Zm5 0v2h7v-2h-7ZM6 15v2h5v-2H6Zm7 0v2h5v-2h-5Z"/></svg>',
+
+    sales:
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5h2v12h14v2H4Zm3.5-3 3.2-4.2 2.6 2.1L17 8.5l1.5 1.2-5.4 6.8-2.7-2.2L7.5 16Z"/></svg>',
+
+    analysis:
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v4H5V4Zm0 6h6v10H5V10Zm8 0h6v4h-6v-4Zm0 6h6v4h-6v-4Z"/></svg>',
+
+    adventureWorks:
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5h2v12h14v2H4Zm3-3v-5h3v5H7Zm5 0V8h3v8h-3Zm5 0v-3h3v3h-3Z"/></svg>'
+
+};
+
+
+
+const defaultProjectCardIcon =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>';
+
+
+
+/* =====================================================
+CREATE PROJECT CARD
+===================================================== */
+
+function createProjectCard(
+    projectId,
+    project
+) {
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+
+    card.className =
+        "project";
+
+
+    card.dataset.projectCard =
+        projectId;
+
+
+    const tagsHtml =
+        (
+            project.tags ||
+            []
+        )
+            .map(
+                function (
+                    tag
+                ) {
+
+                    return (
+                        '<span class="tag">' +
+                        escapeHtml(
+                            tag
+                        ) +
+                        '</span>'
+                    );
+
+                }
+            )
+            .join(
+                ""
+            );
+
+
+    const icon =
+        projectCardIcons[
+            projectId
+        ]
+
+        ||
+
+        defaultProjectCardIcon;
+
+
+    const description =
+        project.cardDescription
+
+        ||
+
+        project.subtitle
+
+        ||
+
+        project.description
+
+        ||
+
+        "";
+
+
+    card.innerHTML = `
+
+        <div class="project-image">
+            ${icon}
+        </div>
+
+        <div class="project-content">
+
+            <h3>
+                ${escapeHtml(project.title)}
+            </h3>
+
+            <p>
+                ${escapeHtml(description)}
+            </p>
+
+            <div class="tags">
+                ${tagsHtml}
+            </div>
+
+            <button
+                type="button"
+                class="project-link"
+                data-project="${escapeHtml(projectId)}"
+            >
+
+                View Project
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M5 11h11.2l-3.6-3.6L14 6l6 6-6 6-1.4-1.4 3.6-3.6H5v-2Z"/>
+                </svg>
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    return card;
+
+}
+
+
+
+/* =====================================================
+SAFE HTML TEXT
+===================================================== */
+
+function escapeHtml(
+    value
+) {
+
+    return String(
+        value ?? ""
+    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+
+/* =====================================================
+RENDER ALL PROJECTS PAGE
+===================================================== */
+
+/*
+    projects.html only needs an element with:
+
+        id="allProjectsGrid"
+        class="projects"
+
+    Every project in projectOrder will then appear
+    automatically on that page.
+*/
+
+function renderAllProjectsPage() {
+
+    const allProjectsGrid =
+        document.getElementById(
+            "allProjectsGrid"
+        );
+
+
+    if (
+        !allProjectsGrid
+    ) {
+
+        return;
+
+    }
+
+
+    allProjectsGrid.innerHTML =
+        "";
+
+
+    projectOrder.forEach(
+
+        function (
+            projectId
+        ) {
+
+            const project =
+                projectsData[
+                    projectId
+                ];
+
+
+            if (
+                !project
+            ) {
+
+                console.warn(
+                    "Project listed in projectOrder was not found:",
+                    projectId
+                );
+
+                return;
+
+            }
+
+
+            allProjectsGrid.appendChild(
+
+                createProjectCard(
+                    projectId,
+                    project
+                )
+
+            );
+
+        }
+
+    );
+
+
+    const projectsCount =
+        document.getElementById(
+            "projectsCount"
+        );
+
+
+    if (
+        projectsCount
+    ) {
+
+        projectsCount.textContent =
+            projectOrder.length;
+
+    }
+
+}
+
+
+
+/* =====================================================
+RENDER FEATURED PROJECTS ON HOME
+===================================================== */
+
+/*
+    Home always shows the first 3 projects from projectOrder.
+
+    To add a new project later:
+    1) Add its data to projectsData.
+    2) Put its ID at the TOP of projectOrder.
+
+    It will automatically:
+    - appear first on Home
+    - push the oldest featured project out of Home
+    - remain visible with every project on projects.html
+*/
+
+function renderFeaturedProjects() {
+
+    /*
+        projects.html has #allProjectsGrid.
+        If it exists, this is not the Home featured grid.
+    */
+
+    if (
+        document.getElementById(
+            "allProjectsGrid"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    const projectsSection =
+        document.getElementById(
+            "projects"
+        );
+
+
+    if (
+        !projectsSection
+    ) {
+
+        return;
+
+    }
+
+
+    const featuredProjectsGrid =
+        projectsSection.querySelector(
+            ".projects"
+        );
+
+
+    if (
+        !featuredProjectsGrid
+    ) {
+
+        return;
+
+    }
+
+
+    featuredProjectsGrid.innerHTML =
+        "";
+
+
+    projectOrder
+        .slice(
+            0,
+            3
+        )
+        .forEach(
+
+            function (
+                projectId
+            ) {
+
+                const project =
+                    projectsData[
+                        projectId
+                    ];
+
+
+                if (
+                    !project
+                ) {
+
+                    console.warn(
+                        "Featured project was not found:",
+                        projectId
+                    );
+
+                    return;
+
+                }
+
+
+                featuredProjectsGrid
+                    .appendChild(
+
+                        createProjectCard(
+                            projectId,
+                            project
+                        )
+
+                    );
+
+            }
+
+        );
+
+}
+
+
+
+/* =====================================================
+INITIALIZE PROJECT GRIDS
+===================================================== */
+
+renderFeaturedProjects();
+
+renderAllProjectsPage();
 
 
 
@@ -2715,41 +3703,61 @@ function renderProjectScreenshots(
 PROJECT BUTTONS
 ===================================================== */
 
-document
-    .querySelectorAll(
-        ".project-link[data-project]"
-    )
-    .forEach(
+/*
+    Event delegation is used here instead of binding each
+    button individually.
 
-        function (
-            button
+    This keeps the existing home-page project buttons working
+    and also supports project cards generated dynamically on
+    projects.html.
+*/
+
+document.addEventListener(
+
+    "click",
+
+    function (
+        event
+    ) {
+
+        const button =
+            event.target.closest(
+                ".project-link[data-project]"
+            );
+
+
+        if (
+            !button
         ) {
 
-            button
-                .addEventListener(
-
-                    "click",
-
-                    function () {
-
-                        const projectId =
-
-                            button
-                                .dataset
-                                .project;
-
-
-                        openProject(
-                            projectId
-                        );
-
-                    }
-
-                );
+            return;
 
         }
 
-    );
+
+        event.preventDefault();
+
+
+        const projectId =
+            button.dataset.project;
+
+
+        if (
+            !projectId
+        ) {
+
+            return;
+
+        }
+
+
+        openProject(
+            projectId
+        );
+
+    }
+
+);
 
 
 
