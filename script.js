@@ -166,7 +166,7 @@ function applyTheme(
                 );
 
         } catch (
-            error
+        error
         ) {
 
             console.warn(
@@ -213,7 +213,7 @@ if (
                 const nextTheme =
 
                     currentTheme ===
-                    "dark"
+                        "dark"
 
                         ? "light"
 
@@ -687,7 +687,7 @@ function startPortfolioLoader() {
         }
 
     } catch (
-        error
+    error
     ) {
 
         console.warn(
@@ -1020,7 +1020,7 @@ document.addEventListener(
                 );
 
         } catch (
-            error
+        error
         ) {
 
             return;
@@ -1116,7 +1116,7 @@ document.addEventListener(
             );
 
         } catch (
-            error
+        error
         ) {
 
             console.warn(
@@ -1704,6 +1704,8 @@ PROJECT DATA
 
 const projectOrder = [
 
+    "mavenMarket",
+
     "adventureWorks",
 
     "financial",
@@ -1717,6 +1719,173 @@ const projectOrder = [
 
 
 const projectsData = {
+
+
+    /* =====================================================
+       MAVEN MARKET
+    ===================================================== */
+
+    mavenMarket: {
+
+
+        title:
+            "Maven Market Dashboard",
+
+
+        subtitle:
+            "Interactive Power BI dashboard for monitoring monthly transactions, profit, returns, revenue trends, product-brand performance and geographic store activity.",
+
+
+        cardDescription:
+            "Interactive Power BI retail dashboard tracking transactions, profit, returns, revenue targets, brand performance and geographic trends.",
+
+
+        type:
+            "Power BI Dashboard",
+
+
+        tags: [
+
+            "Power BI",
+
+            "DAX",
+
+            "Data Analysis"
+
+        ],
+
+
+        description:
+            "I built this Maven Market Dashboard in Power BI to turn retail transaction data into a clear, interactive business reporting experience. The dashboard brings together current-month transactions, profit and returns, compares performance with goals, tracks weekly revenue, evaluates revenue against target, analyzes product-brand profitability and return rates, and explores store activity geographically. Country filtering and map-based analysis make it easy to move from a high-level performance view into specific markets and store locations.",
+
+
+        tools: [
+
+            "Power BI",
+
+            "DAX",
+
+            "Data Modeling",
+
+            "Azure Maps",
+
+            "Data Visualization"
+
+        ],
+
+
+        highlights: [
+
+
+            {
+
+                title:
+                    "Current-Month KPI Tracking",
+
+                text:
+                    "Current Month Transactions, Profit and Returns are displayed as KPI cards with goal comparisons for quick performance monitoring."
+
+            },
+
+
+            {
+
+                title:
+                    "Product Brand Performance",
+
+                text:
+                    "A detailed brand-level table compares Total Transactions, Total Profit, Profit Margin and Return Rate using visual formatting for faster analysis."
+
+            },
+
+
+            {
+
+                title:
+                    "Geographic Store Analysis",
+
+                text:
+                    "Azure Maps and a geographic treemap visualize transaction activity across store locations, while country filtering supports focused market analysis."
+
+            },
+
+
+            {
+
+                title:
+                    "Weekly Revenue Trending",
+
+                text:
+                    "A weekly revenue chart makes changes, spikes and performance patterns across the year easy to identify."
+
+            },
+
+
+            {
+
+                title:
+                    "Revenue vs. Target",
+
+                text:
+                    "A gauge compares actual revenue with the business target so the remaining performance gap can be understood immediately."
+
+            }
+
+        ],
+
+
+        work: [
+
+            "Built an interactive one-page Power BI dashboard for Maven Market retail performance.",
+
+            "Created and used measures for transactions, profit, returns, revenue, goal comparisons, profit margin, return rate and revenue targets.",
+
+            "Designed KPI cards for Current Month Transactions, Current Month Profit and Current Month Returns.",
+
+            "Built a product-brand performance table covering transactions, profit, margin and return rate.",
+
+            "Added conditional formatting and data bars to make brand-level comparisons easier to scan.",
+
+            "Created an Azure Map to analyze transaction activity by store city and geographic location.",
+
+            "Added country-level filtering for USA, Canada and Mexico.",
+
+            "Built a weekly revenue trend chart to monitor performance throughout the year.",
+
+            "Created a Revenue vs. Target gauge for at-a-glance target tracking.",
+
+            "Combined KPI, product, geographic and time-based analysis into a single business-focused dashboard."
+
+        ],
+
+
+        insights: [
+
+            "The dashboard combines operational volume, profitability and returns so performance can be evaluated from more than one business perspective.",
+
+            "Goal comparisons make it easy to see whether current-month performance is moving above or below expected levels.",
+
+            "Brand-level analysis helps identify differences in transaction volume, profit margin and return behavior across products.",
+
+            "Geographic visuals reveal where transaction activity is concentrated and allow country-specific analysis.",
+
+            "Weekly revenue trending helps surface spikes, dips and possible seasonal patterns.",
+
+            "The revenue gauge makes progress toward the business target immediately visible.",
+
+            "Interactive filtering turns the report from a static summary into a reusable decision-support dashboard."
+
+        ],
+
+
+        images: [
+
+            "./images/Maven Market/maven-market-1.png"
+
+        ]
+
+    },
+
 
 
     financial: {
@@ -2354,6 +2523,10 @@ PROJECT CARD ICONS
 
 const projectCardIcons = {
 
+    mavenMarket:
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5h2v12h14v2H4Zm3-3v-4h3v4H7Zm5 0V8h3v8h-3Zm5 0v-6h3v6h-3Z"/></svg>',
+
+
     financial:
         '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm2 4v2h4V7H6Zm6 0v2h6V7h-6ZM6 11v2h3v-2H6Zm5 0v2h7v-2h-7ZM6 15v2h5v-2H6Zm7 0v2h5v-2h-5Z"/></svg>',
 
@@ -2425,7 +2598,7 @@ function createProjectCard(
 
     const icon =
         projectCardIcons[
-            projectId
+        projectId
         ]
 
         ||
@@ -2576,7 +2749,7 @@ function renderAllProjectsPage() {
 
             const project =
                 projectsData[
-                    projectId
+                projectId
                 ];
 
 
@@ -2709,7 +2882,7 @@ function renderFeaturedProjects() {
 
                 const project =
                     projectsData[
-                        projectId
+                    projectId
                     ];
 
 
@@ -3273,14 +3446,14 @@ function updateNextProjectButton(
 
         projectOrder[
 
-            (
-                currentIndex +
-                1
-            )
+        (
+            currentIndex +
+            1
+        )
 
-            %
+        %
 
-            projectOrder.length
+        projectOrder.length
 
         ];
 
@@ -3288,7 +3461,7 @@ function updateNextProjectButton(
     const nextProject =
 
         projectsData[
-            nextId
+        nextId
         ];
 
 
@@ -3347,7 +3520,7 @@ function populateProject(
 
         project.subtitle
             .trim() !==
-            ""
+        ""
 
     ) {
 
@@ -3457,7 +3630,7 @@ function openProject(
     const project =
 
         projectsData[
-            projectId
+        projectId
         ];
 
 
@@ -3903,7 +4076,7 @@ if (
                     &&
 
                     projectsData[
-                        nextId
+                    nextId
                     ]
 
                 ) {
@@ -4832,7 +5005,7 @@ window
                 if (
 
                     projectsData[
-                        projectId
+                    projectId
                     ]
 
                 ) {
@@ -4882,7 +5055,7 @@ function openProjectFromHistory(
     const project =
 
         projectsData[
-            projectId
+        projectId
         ];
 
 
@@ -4974,7 +5147,7 @@ DIRECT PROJECT URL
     if (
 
         projectsData[
-            projectId
+        projectId
         ]
 
     ) {
