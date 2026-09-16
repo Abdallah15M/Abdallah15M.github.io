@@ -1892,7 +1892,7 @@ const projectsData = {
 
 
         title:
-            "Dynamic Sales Report Dashboard in Excel",
+            "Dynamic Sales Report Dashboard",
 
 
         subtitle:
