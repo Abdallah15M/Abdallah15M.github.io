@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+
+    <meta charset="UTF-8">
+
+
+    <!-- =====================================================
+         SKIP LOADER BEFORE PAGE RENDERS
+    ====================================================== -->
+
+    <script>
+
+        (function () {
+
+            try {
+
+                const skipLoader =
+                    sessionStorage.getItem(
+                        "abdallah-skip-next-loader"
+                    ) === "true";
+
+
+                if (
+                    skipLoader
+                ) {
+
+                    document.documentElement
+                        .classList
+                        .add(
+                            "skip-portfolio-loader"
+                        );
+
+                }
+
+            }
+
+            catch (error) {
+
+                /*
+                    If sessionStorage is unavailable,
+                    keep normal loader behavior.
+                */
+
+            }
+
+        })();
+
+    </script>
+
+
+    <style>
+
+        /*
+            IMPORTANT:
+
+            This is inside <head> intentionally.
+
+            It hides the loader BEFORE the browser paints
+            the page, preventing even a very quick flash.
+        */
+
+        html.skip-portfolio-loader #intro {
+
+            display:
+                none !important;
+
+            visibility:
+                hidden !important;
+
+            opacity:
+                0 !important;
+
+            pointer-events:
+                none !important;
+
+        }
+
+
+        html.skip-portfolio-loader #website {
+
+            display:
+                block !important;
+
+            visibility:
+                visible !important;
+
+            opacity:
+                1 !important;
+
+            pointer-events:
+                auto !important;
+
+            transform:
+                none !important;
+
+        }
+
+
+        html.skip-portfolio-loader body {
+
+            overflow-y:
+                auto !important;
+
+        }
+
+    </style>
+
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+
+    <title>
+        All Projects | Abdallah M.Alkady
+    </title>
+
+
+    <meta
+        name="description"
+        content="Data Analysis projects by Abdallah M.Alkady."
+    >
+
+
+
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="./favicon2.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="./favicon2.png"
+    >
+
+
+
+    <!-- =====================================================
+         APPLY SAVED THEME BEFORE RENDER
+    ====================================================== -->
+
+    <script>
+
+        (function () {
+
+            const THEME_KEY =
+                "abdallah-portfolio-theme";
+
+
+            try {
+
+                const savedTheme =
+                    localStorage.getItem(
+                        THEME_KEY
+                    );
+
+
+                const systemPrefersDark =
+                    window.matchMedia &&
+                    window.matchMedia(
+                        "(prefers-color-scheme: dark)"
+                    ).matches;
+
+
+                const initialTheme =
+
+                    savedTheme === "dark" ||
+                    savedTheme === "light"
+
+                        ? savedTheme
+
+                        : (
+                            systemPrefersDark
+                                ? "dark"
+                                : "light"
+                        );
+
+
+                document.documentElement
+                    .setAttribute(
+                        "data-theme",
+                        initialTheme
+                    );
+
+            }
+
+            catch (error) {
+
+                document.documentElement
+                    .setAttribute(
+                        "data-theme",
+                        "dark"
+                    );
+
+            }
+
+        })();
+
+    </script>
+
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+
+    <!-- =====================================================
+         CACHE BUSTING + CSS
+    ====================================================== -->
+
+    <script>
+
+        window.PORTFOLIO_ASSET_VERSION =
+            Date.now();
+
+
+        document.write(
+
+            '<link rel="stylesheet" href="./style.css?v=' +
+
+            window.PORTFOLIO_ASSET_VERSION +
+
+            '">'
+
+        );
+
+    </script>
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- =====================================================
+         LOADER
+    ====================================================== -->
+
+    <div
+        id="intro"
+        aria-live="polite"
+    >
+
+        <div class="portfolio-loader-shell">
+
+            <div class="portfolio-loader">
+
+
+                <p
+                    class="loader-status"
+                    id="loaderStatus"
+                >
+                    Loading projects...
+                </p>
+
+
+                <div class="loader-progress-track">
+
+                    <div
+                        class="loader-progress-bar"
+                        id="loaderProgressBar"
+                    ></div>
+
+                </div>
+
+
+                <div class="loader-footer">
+
+                    <span
+                        class="loader-percentage"
+                        id="loaderPercentage"
+                    >
+                        0%
+                    </span>
+
+
+                    <span class="loader-message">
+                        Turning data into decisions.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN WEBSITE
+    ====================================================== -->
+
+    <div id="website">
+
+
+
+        <!-- =================================================
+             NAVBAR
+        ================================================== -->
+
+        <nav>
+
+
+            <a
+                href="./index.html#home"
+                class="logo"
+                aria-label="Home"
+            ></a>
+
+
+
+            <ul id="navMenu">
+
+
+                <li>
+
+                    <a href="./index.html#home">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z"
+                            />
+
+                        </svg>
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="./index.html#about">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"
+                            />
+
+                        </svg>
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="./index.html#skills">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z"
+                            />
+
+                        </svg>
+
+                        Skills
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="#projects">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+                            />
+
+                        </svg>
+
+                        Projects
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="./index.html#cv">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm7 1.5V8h3.5L14 4.5ZM8 12h8v1.5H8V12Zm0 3.5h8V17H8v-1.5Zm0-7h4V10H8V8.5Z"
+                            />
+
+                        </svg>
+
+                        CV
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="./index.html#contact">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6Zm-2 0-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"
+                            />
+
+                        </svg>
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+
+
+            <div class="nav-actions">
+
+
+                <!-- THEME -->
+
+                <button
+                    type="button"
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Switch theme"
+                    title="Switch theme"
+                >
+
+
+                    <svg
+                        class="theme-icon theme-icon-moon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"
+                        />
+
+                    </svg>
+
+
+                    <svg
+                        class="theme-icon theme-icon-sun"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                        />
+
+
+                        <path
+                            d="
+                                M12 2v2
+                                M12 20v2
+                                M4.93 4.93l1.41 1.41
+                                M17.66 17.66l1.41 1.41
+                                M2 12h2
+                                M20 12h2
+                                M6.34 17.66l-1.41 1.41
+                                M19.07 4.93l-1.41 1.41
+                            "
+                        />
+
+                    </svg>
+
+                </button>
+
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    type="button"
+                    class="nav-toggle"
+                    id="navToggle"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+
+
+        <!-- =================================================
+             ALL PROJECTS
+        ================================================== -->
+
+        <section id="projects">
+
+
+            <div class="projects-heading">
+
+
+                <h2 class="section-title">
+
+                    <span
+                        class="section-icon"
+                        aria-hidden="true"
+                    >
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+                            />
+
+                        </svg>
+
+                    </span>
+
+
+                    All
+                    <span>
+                        Projects
+                    </span>
+
+                </h2>
+
+
+
+                <a
+                    href="./index.html#projects"
+                    class="view-all-projects"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M19 11H7.8l3.6-3.6L10 6l-6 6 6 6 1.4-1.4L7.8 13H19v-2Z"
+                        />
+
+                    </svg>
+
+
+                    <span>
+                        Back to Portfolio
+                    </span>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ALL PROJECTS GRID
+            ================================================== -->
+
+            <div
+                class="projects"
+                id="allProjectsGrid"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer>
+
+            © 2026 Abdallah M.Alkady.
+            All Rights Reserved.
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PROJECT DETAILS PAGE
+    ====================================================== -->
+
+    <div
+        id="projectDetailsPage"
+        aria-hidden="true"
+    >
+
+
+
+        <div class="project-details-topbar">
+
+
+            <button
+                type="button"
+                id="backToProjects"
+                class="back-project-btn"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M14.5 6 8.5 12l6 6 1.4-1.4L11.3 12l4.6-4.6L14.5 6Z"
+                    />
+
+                </svg>
+
+
+                Back to Projects
+
+            </button>
+
+
+
+            <div class="project-details-brand">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"
+                    />
+
+                </svg>
+
+
+                ABDALLAH M.ALKADY • CASE STUDY
+
+            </div>
+
+        </div>
+
+
+
+        <main class="project-details-container">
+
+
+
+            <!-- =================================================
+                 PROJECT INTRO
+            ================================================== -->
+
+            <div class="project-details-intro">
+
+
+                <div class="project-details-label">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+                        />
+
+                    </svg>
+
+                    DATA ANALYSIS PROJECT
+
+                </div>
+
+
+
+                <h1 id="projectDetailsTitle">
+                    Project Title
+                </h1>
+
+
+
+                <p id="projectDetailsSubtitle">
+                    Project Description
+                </p>
+
+
+
+                <div
+                    class="project-details-tags"
+                    id="projectDetailsTags"
+                ></div>
+
+
+
+                <div
+                    class="project-meta"
+                    id="projectDetailsMeta"
+                ></div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SCREENSHOTS
+            ================================================== -->
+
+            <section class="project-screenshots">
+
+
+                <div class="project-screenshots-heading">
+
+
+                    <div>
+
+
+                        <span>
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+
+                                <path
+                                    d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v8.2l3.2-3.2 2.3 2.3 3.4-3.4L19 15.5V7H5Zm2.5 2.2A1.3 1.3 0 1 0 7.5 7a1.3 1.3 0 0 0 0 2.2Z"
+                                />
+
+                            </svg>
+
+
+                            VISUAL OVERVIEW
+
+                        </span>
+
+
+
+                        <h2>
+                            Project Screenshots
+                        </h2>
+
+                    </div>
+
+
+
+                    <p>
+                        Click any screenshot to expand and zoom.
+                    </p>
+
+                </div>
+
+
+
+                <div
+                    class="project-screenshots-grid"
+                    id="projectScreenshotsGrid"
+                ></div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ABOUT + TOOLS
+            ================================================== -->
+
+            <div class="project-information-grid">
+
+
+
+                <div class="project-info-card">
+
+
+                    <div class="project-info-number">
+                        01
+                    </div>
+
+
+
+                    <h2>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M12 3a9 9 0 1 0 9 9A9 9 0 0 0 12 3Zm0 4a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 12 7Zm-1.5 4h3v7h-3v-7Z"
+                            />
+
+                        </svg>
+
+
+                        About This Project
+
+                    </h2>
+
+
+
+                    <p
+                        id="projectDetailsDescription"
+                    ></p>
+
+                </div>
+
+
+
+                <div class="project-info-card">
+
+
+                    <div class="project-info-number">
+                        02
+                    </div>
+
+
+
+                    <h2>
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 3h7v4h-7v-4Z"
+                            />
+
+                        </svg>
+
+
+                        Tools Used
+
+                    </h2>
+
+
+
+                    <div
+                        class="project-tools-list"
+                        id="projectDetailsTools"
+                    ></div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 KEY COMPONENTS
+            ================================================== -->
+
+            <div
+                class="project-info-card project-full-card"
+            >
+
+
+                <div class="project-info-number">
+                    03
+                </div>
+
+
+
+                <h2>
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M5 4h14v4H5V4Zm0 6h6v10H5V10Zm8 0h6v4h-6v-4Zm0 6h6v4h-6v-4Z"
+                        />
+
+                    </svg>
+
+
+                    Key Components
+
+                </h2>
+
+
+
+                <div
+                    class="project-highlights"
+                    id="projectDetailsHighlights"
+                ></div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 WORK
+            ================================================== -->
+
+            <div
+                class="project-info-card project-full-card"
+            >
+
+
+                <div class="project-info-number">
+                    04
+                </div>
+
+
+
+                <h2>
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M9 3h6v2H9V3Zm1 4h4l1 3h3v2h-1.1l-1.3 7H6.4L5.1 12H4V10h3l1-3Zm.9 5-.7 4h4.6l-.7-4H10.9Z"
+                        />
+
+                    </svg>
+
+
+                    What I Worked On
+
+                </h2>
+
+
+
+                <div
+                    class="project-points"
+                    id="projectDetailsWork"
+                ></div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 INSIGHTS
+            ================================================== -->
+
+            <div
+                class="project-info-card project-full-card"
+            >
+
+
+                <div class="project-info-number">
+                    05
+                </div>
+
+
+
+                <h2>
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M4 19V5h2v12h14v2H4Zm4-3V9h2v7H8Zm4 0V6h2v10h-2Zm4 0v-4h2v4h-2Z"
+                        />
+
+                    </svg>
+
+
+                    Project Focus
+
+                </h2>
+
+
+
+                <div
+                    class="project-points"
+                    id="projectDetailsInsights"
+                ></div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BOTTOM NAVIGATION
+            ================================================== -->
+
+            <div class="project-bottom-navigation">
+
+
+                <button
+                    type="button"
+                    class="btn"
+                    id="backToProjectsBottom"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M14.5 6 8.5 12l6 6 1.4-1.4L11.3 12l4.6-4.6L14.5 6Z"
+                        />
+
+                    </svg>
+
+
+                    Back to Projects
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="btn primary"
+                    id="nextProjectBtn"
+                >
+
+                    Next Project
+
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <path
+                            d="M9.5 6 15.5 12l-6 6-1.4-1.4 4.6-4.6-4.6-4.6L9.5 6Z"
+                        />
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PROJECT IMAGE LIGHTBOX
+    ====================================================== -->
+
+    <div
+        id="projectLightbox"
+        aria-hidden="true"
+    >
+
+
+        <button
+            type="button"
+            id="closeProjectLightbox"
+            class="project-lightbox-close"
+            aria-label="Close image"
+        >
+            ×
+        </button>
+
+
+
+        <div class="project-lightbox-controls">
+
+
+            <button
+                type="button"
+                id="zoomOutBtn"
+                aria-label="Zoom out"
+            >
+                −
+            </button>
+
+
+
+            <button
+                type="button"
+                id="zoomResetBtn"
+                aria-label="Reset zoom"
+            >
+
+                <span id="zoomPercentage">
+                    100%
+                </span>
+
+            </button>
+
+
+
+            <button
+                type="button"
+                id="zoomInBtn"
+                aria-label="Zoom in"
+            >
+                +
+            </button>
+
+        </div>
+
+
+
+        <div
+            class="project-lightbox-stage"
+            id="projectLightboxStage"
+        >
+
+            <img
+                id="projectLightboxImage"
+                src=""
+                alt="Project Screenshot"
+                draggable="false"
+            >
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const mainScript =
+            document.createElement(
+                "script"
+            );
+
+
+        mainScript.src =
+            "./script.js?v=" +
+            window.PORTFOLIO_ASSET_VERSION;
+
+
+        document.body.appendChild(
+            mainScript
+        );
+
+    </script>
+
+
+</body>
+
+</html>
